@@ -1,1 +1,1 @@
-# desafio-elixir-stone
+# desafio-stone

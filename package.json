@@ -1,0 +1,19 @@
+{
+  "name": "desafio-stone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francieleportugal/desafio-stone.git"
+  },
+  "author": "Franciele Portugal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francieleportugal/desafio-stone/issues"
+  },
+  "homepage": "https://github.com/francieleportugal/desafio-stone#readme"
+}
