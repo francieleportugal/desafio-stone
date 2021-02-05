@@ -1,7 +1,7 @@
 const { formatData } = require('../src/core');
 
 describe('formatData', () => {
-    it('', () => {
+    it('sends data, receives formatted data', () => {
         const emailList = ['user1@gmail.com', 'user2@gmail.com', 'user3@gmail.com'];
         const values = [34, 33, 33];
 
@@ -11,7 +11,7 @@ describe('formatData', () => {
             ['user3@gmail.com', 33]
         ]));
     });
-    it('', () => {
+    it('sends data, receives formatted data', () => {
         const emailList = [
             'user1@gmail.com',
             'user2@gmail.com',
