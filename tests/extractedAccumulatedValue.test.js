@@ -1,6 +1,6 @@
-const { calculate } = require('../src/core');
+const { extractedAccumulatedValue } = require('../src/core');
 
-describe('calculate', () => {
+describe('extractedAccumulatedValue', () => {
     it('sum all items, returns value', () => {
         const shoppingList = [
             {
@@ -14,7 +14,7 @@ describe('calculate', () => {
                 amount: 3,
             },
         ];
-        expect(calculate(shoppingList)).toBe(750);
+        expect(extractedAccumulatedValue(shoppingList)).toBe(750);
     });
 
     it('long shopping list with high subtotal, returns value', () => {
@@ -76,6 +76,6 @@ describe('calculate', () => {
             shoppingList = shoppingList.concat(data);
         }
 
-        expect(calculate(shoppingList)).toBe(673993650700);
+        expect(extractedAccumulatedValue(shoppingList)).toBe(673993650700);
     });    
 });

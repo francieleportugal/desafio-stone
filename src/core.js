@@ -1,4 +1,4 @@
-const calculate = (shoppingList) => {
+const extractedAccumulatedValue = (shoppingList) => {
     const reducer = (accumulator, currentValue) => {
         return accumulator + (currentValue.amount * currentValue.price);
     };
@@ -6,7 +6,7 @@ const calculate = (shoppingList) => {
     return shoppingList.reduce(reducer, 0);
 };
 
-const divide = (total, amountPeople) => {
+const divideMoneyEqually = (total, amountPeople) => {
     const individualValue = Math.trunc(total / amountPeople);
     const resultByPerson = Array(amountPeople).fill(individualValue);
 
@@ -27,7 +27,7 @@ const formatData = (emailList, resultByPerson) => {
 };
 
 module.exports = {
-    calculate,
-    divide,
+    extractedAccumulatedValue,
+    divideMoneyEqually,
     formatData,
 };
