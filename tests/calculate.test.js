@@ -1,4 +1,4 @@
-const calculate = require('../src/calculate');
+const { calculate } = require('../src/core');
 
 describe('calculate', () => {
     it('sum all items, returns value', () => {

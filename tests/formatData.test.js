@@ -1,4 +1,4 @@
-const formatData = require('../src/formatData');
+const { formatData } = require('../src/core');
 
 describe('formatData', () => {
     it('', () => {

@@ -1,4 +1,4 @@
-const divide = require('../src/divide');
+const { divide } = require('../src/core');
 
 describe('divide', () => {
     it('divide 100 by 3, returns array by person with different values', () => {
