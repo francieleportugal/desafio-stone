@@ -26,8 +26,21 @@ const formatData = (emailList, resultByPerson) => {
     )));
 };
 
+const coreInterface = (shoppingList, emailList) => {
+    if (!shoppingList.length || !emailList.length) {
+        throw new Error('Lists should not be empty');
+    }
+
+    const accumulatedVAlue = extractedAccumulatedValue(shoppingList);
+    const resultByPerson = divideMoneyEqually(accumulatedVAlue, emailList.length);
+    const data = formatData(emailList, resultByPerson);
+
+    return data;
+};
+
 module.exports = {
     extractedAccumulatedValue,
     divideMoneyEqually,
     formatData,
+    coreInterface,
 };
