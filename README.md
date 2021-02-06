@@ -13,3 +13,5 @@ TO DO
 - explicar jsdoc
 - explicar como rodar o projeto
 - explicar como rodar os testes
+- gerar dados aleatoriamente?
+- como criar arquivos de dados
