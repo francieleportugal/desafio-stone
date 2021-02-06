@@ -2,6 +2,9 @@
 
 TO DO
 
+- leitura de arquivo como entrada
+- bigint
 - Validar listas vazias (retornar erro)
-- validar quantidade, preço igual a zero
-- comentar código
+- outras validações?
+- comentar código (jsdoc)
+- colocar explicação no readme
