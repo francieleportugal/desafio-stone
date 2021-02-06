@@ -15,3 +15,5 @@ TO DO
 - explicar como rodar os testes
 - gerar dados aleatoriamente?
 - como criar arquivos de dados
+- eslint
+- lidar com erro de leitura de arquivo
