@@ -1,0 +1,5 @@
+{
+    "source": {
+        "include": ["src/core.js", "src/interface.js"]
+    }
+}
