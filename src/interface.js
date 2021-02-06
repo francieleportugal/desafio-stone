@@ -29,6 +29,9 @@ const executeWithDataInputByCsvFile = async () => {
     return coreInterface(shoppingList, emailList);
 };
 
+const execute = (shoppingList, emailList) => coreInterface(shoppingList, emailList);
+
 module.exports = {
     executeWithDataInputByCsvFile,
+    execute,
 };
