@@ -8,3 +8,8 @@ TO DO
 - outras validações?
 - comentar código (jsdoc)
 - colocar explicação no readme
+- precisa do campo name?
+- explicar arquitetura
+- explicar jsdoc
+- explicar como rodar o projeto
+- explicar como rodar os testes
