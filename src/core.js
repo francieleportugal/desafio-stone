@@ -42,22 +42,6 @@ const divideMoneyEqually = (total, amountPeople) => {
 };
 
 /**
- * Formata a saída dos dados.
- * @param {String[]} emailList - Lista de e-mails
- * @param {int[]} resultByPerson - Lista com o valor que cada pessoa deve pagar
- * @return {Map} Retorna um mapa, onde a chave é o e-mail e valor será quanto a pessoa deve pagar.
- */
-const formatData = (emailList, resultByPerson) => {
-    /**
-     * Itera a lista de e-mails, onde a cada iteração é retornado um elemento do mapa com a chave (e-mail)
-     * e o valor, que corresponde ao valor que preenche a mesma posição na lista de resultados por pessoa
-     */
-    return new Map(emailList.map((email, index) => (
-        [email, resultByPerson[index]]
-    )));
-};
-
-/**
  * Valida se há e-mails duplicados na lista.
  * @param {String[]} emailList - Lista de e-mails
  * @return {Boolean} Indica se há e-mails duplicados.
@@ -86,14 +70,12 @@ const coreInterface = (shoppingList, emailList) => {
     // Calcula valor que cada pessoa deve pagar
     const accumulatedVAlue = extractedAccumulatedValue(shoppingList);
     const resultByPerson = divideMoneyEqually(accumulatedVAlue, emailList.length);
-    const data = formatData(emailList, resultByPerson);
 
-    return data;
+    return resultByPerson;
 };
 
 module.exports = {
     extractedAccumulatedValue,
     divideMoneyEqually,
-    formatData,
     coreInterface,
 };

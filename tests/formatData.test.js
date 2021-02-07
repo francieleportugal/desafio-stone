@@ -1,4 +1,4 @@
-const { formatData } = require('../src/core');
+const { formatData } = require('../src/interface');
 
 describe('formatData', () => {
     it('sends data, receives formatted data', () => {
