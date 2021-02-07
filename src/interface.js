@@ -2,6 +2,10 @@ const csv = require('csv-parser');
 const fs = require('fs');
 const { coreInterface } = require('./core');
 
+const hasDuplicates = (emailList) => {
+    return new Set(emailList).size !== emailList.length; 
+};
+
 /**
  * Lê arquivo que contém a lista de e-mails. 
  * @return {Promise<string[]>} Retorna uma promise resolvida com os resultados.  
@@ -37,8 +41,12 @@ const getShoppingList = () => new Promise(resolve => {
  * (valor que cada pessoa deve pagar).
  */
 const executeWithDataInputByCsvFile = async () => {
-    const emailList = await getEmailList();
     const shoppingList = await getShoppingList();
+    const emailList = await getEmailList();
+
+    if (hasDuplicates(emailList)) {
+        throw new Error('There are duplicate emails');
+    }
 
     return coreInterface(shoppingList, emailList);
 };
@@ -51,7 +59,13 @@ const executeWithDataInputByCsvFile = async () => {
  * @return {Promise<Map>} Retorna uma promise com o mapa dos resultados 
  * (valor que cada pessoa deve pagar).
  */
-const execute = (shoppingList, emailList) => coreInterface(shoppingList, emailList);
+const execute = (shoppingList, emailList) => {
+    if (hasDuplicates(emailList)) {
+        throw new Error('There are duplicate emails');
+    }
+
+    return coreInterface(shoppingList, emailList);
+};
 
 module.exports = {
     executeWithDataInputByCsvFile,
