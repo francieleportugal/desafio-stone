@@ -65,8 +65,11 @@ const executeWithDataInputByCsvFile = async () => {
  * Recebe os dados de entrada e executa a lógica do core.
  * Responsável pela comunicação entre o main e o core.
  * @param {String[]} emailList - Lista de e-mails
- * @param {int[]} resultByPerson - Lista com o valor que cada pessoa deve pagar
- * @return {Promise<Map>} Retorna uma promise com o mapa dos resultados 
+ * @param {Object[]} shoppingList - Lista de compras
+ * @param {string} shoppingList.name - Nome do item
+ * @param {int} shoppingList.price - Preço do item em centavos
+ * @param {int} shoppingList.amount - Quantidade comprada   
+ * @return {Map} Retorna um mapa dos resultados
  * (valor que cada pessoa deve pagar).
  */
 const execute = (shoppingList, emailList) => {
