@@ -57,6 +57,14 @@ const formatData = (emailList, resultByPerson) => {
     )));
 };
 
+/**
+ * Valida se há e-mails duplicados na lista.
+ * @param {String[]} emailList - Lista de e-mails
+ * @return {Boolean} Indica se há e-mails duplicados.
+ */
+const hasDuplicates = (emailList) => {
+    return new Set(emailList).size !== emailList.length; 
+};
 
 /**
  * Interface entra a camada de entrada e a camada core, que abstrai a lógica de calcular o valor em centavos que cada pessoa deve pagar.
@@ -68,6 +76,11 @@ const coreInterface = (shoppingList, emailList) => {
     // Valida se as listas de entrada não estão vazias. Caso estejam é emitido um erro
     if (!shoppingList.length || !emailList.length) {
         throw new Error('Lists should not be empty');
+    }
+
+    // Valida se há e-mails duplicados
+    if (hasDuplicates(emailList)) {
+        throw new Error('There are duplicate emails');
     }
 
     // Calcula valor que cada pessoa deve pagar
