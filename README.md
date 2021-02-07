@@ -3,7 +3,7 @@
 TO DO
 
 - bigint
-- outras validações?
+- outras validações? (na camada core, divisão)
 - eslint
 - lidar com erro de leitura de arquivo
 - cobertura de teste jest
