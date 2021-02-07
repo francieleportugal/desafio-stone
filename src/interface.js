@@ -4,11 +4,13 @@ const { coreInterface } = require('./core');
 
 /**
  * Lê arquivo que contém a lista de e-mails. 
- * @return {Promise<string[]>} Retorna uma promise que resolve a lista de e-mails.  
+ * @return {Promise<string[]>} Retorna uma promise que resolve a lista de e-mails 
+ * ou rejeita por erro na leitura do arquivo.  
  */
-const getEmailList = () => new Promise(resolve => {
+const getEmailList = () => new Promise((resolve, reject) => {
     let emailList = [];
     fs.createReadStream('data/email_list.csv')
+        .on('error', () => reject(new Error('Error reading file')))
         .pipe(csv(['email']))
         .on('data', (row) => emailList.push(row['email']))
         .on('end', () => resolve(emailList));
@@ -16,11 +18,13 @@ const getEmailList = () => new Promise(resolve => {
 
 /**
  * Ler arquivo que contém a lista de compras. 
- * @return {Promise<Object[]>} Retorna uma promise que resolve a lista de compras com as chaves: name, price e amount.
+ * @return {Promise<Object[]>} Retorna uma promise que resolve a lista de compras com as chaves: name, price e amount
+ * ou rejeita por erro na leitura do arquivo.  
  */
-const getShoppingList = () => new Promise(resolve => {
+const getShoppingList = () => new Promise((resolve, reject) => {
     let shoppingList = [];
     fs.createReadStream('data/shopping_list.csv')
+        .on('error', () => reject(new Error('Error reading file')))
         .pipe(csv(['name', 'price', 'amount']))
         .on('data', (row) => shoppingList.push({
             name: row['name'],
