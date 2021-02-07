@@ -61,6 +61,6 @@ describe('coreInterface', () => {
         const emailList = ['user1@gmail.com', 'user1@gmail.com'];
 
         expect(() => coreInterface(shoppingList, emailList))
-            .toThrow('There are duplicate emails');
+            .toThrow('There are duplicate e-mails');
     });
 });

@@ -67,6 +67,29 @@ const hasDuplicates = (emailList) => {
 };
 
 /**
+ * Valida dados de entrada.
+ * @param {Object[]} shoppingList - Lista de compras
+ * @param {string} shoppingList.name - Nome do item
+ * @param {int} shoppingList.price - Preço do item em centavos
+ * @param {int} shoppingList.amount - Quantidade comprada
+ * @param {String[]} emailList - Lista de e-mails
+ * @return {void}
+ * @throws Será lançado um erro se qualquer lista estiver vazia.
+ * @throws Será lançado um erro se houver e-mails duplicados.
+ */
+const validateInputData = (shoppingList, emailList) => {
+    // Valida se as listas de entrada não estão vazias. Caso estejam é emitido um erro
+    if (!shoppingList.length || !emailList.length) {
+        throw new Error('Lists should not be empty');
+    }
+
+    // Valida se há e-mails duplicados
+    if (hasDuplicates(emailList)) {
+        throw new Error('There are duplicate e-mails');
+    }
+};
+
+/**
  * Interface entra a camada de entrada e a camada core, que abstrai a lógica de calcular o valor em centavos que cada pessoa deve pagar.
  * @param {Object[]} shoppingList - Lista de compras
  * @param {string} shoppingList.name - Nome do item
@@ -77,15 +100,7 @@ const hasDuplicates = (emailList) => {
  * @return {int[]} Retorna um array onde cada elemento é o valor em centavos que cada pessoa deve pagar.
  */
 const coreInterface = (shoppingList, emailList) => {
-    // Valida se as listas de entrada não estão vazias. Caso estejam é emitido um erro
-    if (!shoppingList.length || !emailList.length) {
-        throw new Error('Lists should not be empty');
-    }
-
-    // Valida se há e-mails duplicados
-    if (hasDuplicates(emailList)) {
-        throw new Error('There are duplicate emails');
-    }
+    validateInputData(shoppingList, emailList);
 
     // Calcula valor que cada pessoa deve pagar
     const accumulatedVAlue = extractedAccumulatedValue(shoppingList);
@@ -96,6 +111,7 @@ const coreInterface = (shoppingList, emailList) => {
 };
 
 module.exports = {
+    validateInputData,
     extractedAccumulatedValue,
     divideMoneyEqually,
     formatData,
