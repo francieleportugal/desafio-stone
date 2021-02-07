@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test-coverage": "jest --coverage",
     "jsdoc": "./node_modules/.bin/jsdoc -c jsdoc.json"
   },
   "repository": {
