@@ -56,6 +56,17 @@ Rodar testes:
 ```
 npm run test
 ```
+Cobertura dos testes: 100%
+```
+npm run test-coverage
+```
+
+File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------|---------|----------|---------|---------|-------------------
+All files     |     100 |      100 |     100 |     100 |                   
+ core.js      |     100 |      100 |     100 |     100 |                   
+ interface.js |     100 |      100 |     100 |     100 |                   
+
 
 ## Documentação do código
 
