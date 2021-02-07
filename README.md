@@ -4,13 +4,8 @@ TO DO
 
 - bigint
 - outras validações?
-- eslint
-- lidar com erro de leitura de arquivo
-- validar chaves duplicadas
 - cobertura de teste jest
 - adicionar scripts para factories
-- adicionar scripts para rodar mains
-- transferir format data para interface
 
 ## Instalação
 
@@ -20,6 +15,15 @@ npm install
 ```
 
 ## Rodar projeto
+
+### REPL
+
+- Importe a função _execute_ do arquivo _src/interface.js_;
+- Passe a lista de compras e a lista de e-mails respectivamente.
+
+Observe o exemplo abaixo.
+
+![Screenshot](images/repl.png)
 
 ### Para rodar o projeto inserindo os dados de entrada hard coded:
 - Acesse _src/main.js_.
@@ -64,25 +68,3 @@ Para acessar a documentação web, abra _out/index.html_.
 ## Arquitetura
 
 Arquitetura Clean.
-
-## Estrutura de pastas
-
-```
-desafio-stone
-│   README.md
-│   package.json    
-│   package-lock.json    
-│   jsdoc.json    
-│   .gitignore    
-│
-└───data
-|
-└───src
-|   │   core.js
-|   │   interface.js
-|   │   interface.js
-|   │   main.js
-|   │   mainWithDataInputByCsvFile.js
-|
-└───tests
-```
