@@ -31,22 +31,6 @@ const getShoppingList = () => new Promise(resolve => {
 });
 
 /**
- * Formata a saída dos dados.
- * @param {String[]} emailList - Lista de e-mails
- * @param {int[]} resultByPerson - Lista com o valor que cada pessoa deve pagar
- * @return {Map} Retorna um mapa, onde a chave é o e-mail e valor será quanto a pessoa deve pagar.
- */
-const formatData = (emailList, resultByPerson) => {
-    /**
-     * Itera a lista de e-mails, onde a cada iteração é retornado um elemento do mapa com a chave (e-mail)
-     * e o valor, que corresponde ao valor que preenche a mesma posição na lista de resultados por pessoa
-     */
-    return new Map(emailList.map((email, index) => (
-        [email, resultByPerson[index]]
-    )));
-};
-
-/**
  * Lê os arquivos CSV para obter os dados de entrada e executa a lógica do core.
  * Responsável pela comunicação entre o main e o core.  
  * @return {Promise<Map>} Retorna uma promise com o mapa dos resultados 
@@ -56,9 +40,7 @@ const executeWithDataInputByCsvFile = async () => {
     const shoppingList = await getShoppingList();
     const emailList = await getEmailList();
 
-    const result = coreInterface(shoppingList, emailList);
-
-    return formatData(emailList, result);
+    return coreInterface(shoppingList, emailList);
 };
 
 /**
@@ -69,14 +51,9 @@ const executeWithDataInputByCsvFile = async () => {
  * @return {Promise<Map>} Retorna uma promise com o mapa dos resultados 
  * (valor que cada pessoa deve pagar).
  */
-const execute = (shoppingList, emailList) => {
-    const result = coreInterface(shoppingList, emailList);
-
-    return formatData(emailList, result);
-};
+const execute = (shoppingList, emailList) => coreInterface(shoppingList, emailList);
 
 module.exports = {
-    formatData,
     executeWithDataInputByCsvFile,
     execute,
 };

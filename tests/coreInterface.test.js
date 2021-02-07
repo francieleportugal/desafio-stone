@@ -26,12 +26,17 @@ describe('coreInterface', () => {
             'user8@gmail.com',
             'user9@gmail.com',
         ];
-
-        expect(coreInterface(shoppingList, emailList))
-            .toStrictEqual([
-                862794, 862794, 862794, 862794,
-                862794, 862794, 862793, 862793, 862793,
-            ]);
+        expect(coreInterface(shoppingList, emailList)).toStrictEqual(new Map([
+            ['user1@gmail.com', 862794],
+            ['user2@gmail.com', 862794],
+            ['user3@gmail.com', 862794],
+            ['user4@gmail.com', 862794],
+            ['user5@gmail.com', 862794],
+            ['user6@gmail.com', 862794],
+            ['user7@gmail.com', 862793],
+            ['user8@gmail.com', 862793],
+            ['user9@gmail.com', 862793]
+        ]));
     });
     it('send empty shopping list and emails list, returns values', () => {
         const shoppingList = [];
