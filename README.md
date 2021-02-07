@@ -1,12 +1,5 @@
 # desafio-stone
 
-TO DO
-
-- bigint
-- outras validações?
-- cobertura de teste jest
-- adicionar scripts para factories
-
 ## Instalação
 
 Instalar as dependências:
