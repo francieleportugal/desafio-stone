@@ -7,8 +7,12 @@ TO DO
 - eslint
 - lidar com erro de leitura de arquivo
 - testar com muitos dados
+- validar chaves duplicadas
+- cobertura de teste jest
+- adicionar scripts para factories
+- adicionar scripts para rodar mains
 
-## Instalação
+    ## Instalação
 
 Instalar as dependências:
 ```
