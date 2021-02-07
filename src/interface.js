@@ -4,7 +4,7 @@ const { coreInterface } = require('./core');
 
 /**
  * Lê arquivo que contém a lista de e-mails. 
- * @return {Promise<string[]>} Retorna uma promise resolvida com os resultados.  
+ * @return {Promise<string[]>} Retorna uma promise que resolve a lista de e-mails.  
  */
 const getEmailList = () => new Promise(resolve => {
     let emailList = [];
@@ -16,7 +16,7 @@ const getEmailList = () => new Promise(resolve => {
 
 /**
  * Ler arquivo que contém a lista de compras. 
- * @return {Promise<Object[]>} a Retorna uma promise resolvida com os resultados com as chaves: name, price e amount.
+ * @return {Promise<Object[]>} Retorna uma promise que resolve a lista de compras com as chaves: name, price e amount.
  */
 const getShoppingList = () => new Promise(resolve => {
     let shoppingList = [];
