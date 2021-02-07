@@ -68,9 +68,13 @@ const hasDuplicates = (emailList) => {
 
 /**
  * Interface entra a camada de entrada e a camada core, que abstrai a lógica de calcular o valor em centavos que cada pessoa deve pagar.
+ * @param {Object[]} shoppingList - Lista de compras
+ * @param {string} shoppingList.name - Nome do item
+ * @param {int} shoppingList.price - Preço do item em centavos
+ * @param {int} shoppingList.amount - Quantidade comprada
+ * @param {int} amountPeople - Quantidade de pessoas
  * @param {String[]} emailList - Lista de e-mails
- * @param {int[]} resultByPerson - Lista com o valor que cada pessoa deve pagar
- * @return {Map} Retorna um mapa, onde a chave é o e-mail e valor será quanto a pessoa deve pagar.
+ * @return {int[]} Retorna um array onde cada elemento é o valor em centavos que cada pessoa deve pagar.
  */
 const coreInterface = (shoppingList, emailList) => {
     // Valida se as listas de entrada não estão vazias. Caso estejam é emitido um erro
