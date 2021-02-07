@@ -6,8 +6,11 @@ TO DO
 - outras validações?
 - eslint
 - lidar com erro de leitura de arquivo
+- validar chaves duplicadas
 - cobertura de teste jest
+- adicionar scripts para factories
 - adicionar scripts para rodar mains
+- transferir format data para interface
 
 ## Instalação
 
