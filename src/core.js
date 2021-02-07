@@ -19,42 +19,29 @@ const extractedAccumulatedValue = (shoppingList) => {
 /**
  * Divide o valor entre a quantidade de pessoas de forma igual.
  * @param {int} total - Valor em centavos
- * @param {int} amountPeople - Quantidade de pessoas
- * @return {int[]} Retorna um array onde cada elemento é o valor em centavos que cada pessoa deve pagar.
+ * @param {String[]} emailList - Lista de e-mails
+ * @return {Map} Retorna um mapa, onde a chave é o e-mail e valor será quanto a pessoa deve pagar.
  */
-const divideMoneyEqually = (total, amountPeople) => {
+const divideMoneyEqually = (total, emailList) => {
+    const map = new Map();
+    const amountPeople = emailList.length;
+
     // Divide o valor total pela quantidade de pessoas e trunca o resultado pegando somente a parte inteira
     const individualValue = Math.trunc(total / amountPeople);
 
-    // Cria e preenche um array com tamanho igual a amountPeople e preenche cada posição com a parte inteira do valor individual
-     const resultByPerson = Array(amountPeople).fill(individualValue);
+    // Preenche mapa com a parte inteira do valor individual
+    emailList.forEach(email => map.set(email, individualValue));
 
     // Obtém o valor restante da divisão entre o valor total e a quantidade de pessoas
     let remainingValue = total % amountPeople;
 
     // Caso o valor restante seja diferente de zero, os centavos restantes são distribuidos um a um por pessoa
     for(i = 0; remainingValue != 0; i++) {
-        resultByPerson[i] += 1;
+        map.set(emailList[i], map.get(emailList[i]) + 1);
         remainingValue -= 1;
     }
 
-    return resultByPerson;
-};
-
-/**
- * Formata a saída dos dados.
- * @param {String[]} emailList - Lista de e-mails
- * @param {int[]} resultByPerson - Lista com o valor que cada pessoa deve pagar
- * @return {Map} Retorna um mapa, onde a chave é o e-mail e valor será quanto a pessoa deve pagar.
- */
-const formatData = (emailList, resultByPerson) => {
-    /**
-     * Itera a lista de e-mails, onde a cada iteração é retornado um elemento do mapa com a chave (e-mail)
-     * e o valor, que corresponde ao valor que preenche a mesma posição na lista de resultados por pessoa
-     */
-    return new Map(emailList.map((email, index) => (
-        [email, resultByPerson[index]]
-    )));
+    return map;
 };
 
 /**
@@ -97,23 +84,19 @@ const validateInputData = (shoppingList, emailList) => {
  * @param {int} shoppingList.amount - Quantidade comprada
  * @param {int} amountPeople - Quantidade de pessoas
  * @param {String[]} emailList - Lista de e-mails
- * @return {int[]} Retorna um array onde cada elemento é o valor em centavos que cada pessoa deve pagar.
+ * @return {Map} Retorna um mapa, onde a chave é o e-mail e valor será quanto a pessoa deve pagar.
  */
 const coreInterface = (shoppingList, emailList) => {
     validateInputData(shoppingList, emailList);
 
     // Calcula valor que cada pessoa deve pagar
     const accumulatedVAlue = extractedAccumulatedValue(shoppingList);
-    const resultByPerson = divideMoneyEqually(accumulatedVAlue, emailList.length);
-    const data = formatData(emailList, resultByPerson);
-
-    return data;
+    return divideMoneyEqually(accumulatedVAlue, emailList);
 };
 
 module.exports = {
     validateInputData,
     extractedAccumulatedValue,
     divideMoneyEqually,
-    formatData,
     coreInterface,
 };
